@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.sass";
+import { ITEM_COMPLETED, ITEM_PROGRESS, FILTER_TODO_LIGHT} from "../../../../constants/TodoConstants";
 
-import { ITEM_COMPLETED, ITEM_PROGRESS } from "../../../../constants/TodoConstants";
-
-export default function List({ list, deleteTask, completeTask }) {
+export default function List({ list, deleteTask, completeTask, themeMode }) {
     const itemClass = (item) => {
         const classes = [];
 
@@ -12,10 +11,9 @@ export default function List({ list, deleteTask, completeTask }) {
         return classes.join(" ");
     };
 
-
     return list.length ? (
         <div>
-            <table>
+            <table className={themeMode === FILTER_TODO_LIGHT ? "light-theme" : "dark-theme"}>
                 <thead>
                 <tr>
                     <th>Title</th>

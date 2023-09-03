@@ -24,10 +24,6 @@ export default function Todo() {
         fetchData();
     }, []);
 
-    const handleThemeChange = (mode) => {
-        setThemeMode(mode);
-    };
-
     const handleDeleteTask = (index) => {
         const newList = [...list];
         newList.splice(index, 1);
@@ -42,7 +38,7 @@ export default function Todo() {
 
     return (
         <>
-            <ThemeMode themeMode={themeMode} changeThemeMode={handleThemeChange} />
+            <ThemeMode themeMode={themeMode} setThemeMode={setThemeMode} />
             <Statistics list={list} />
             <List
                 list={list}
